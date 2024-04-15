@@ -1,8 +1,5 @@
-package modelos;
 import java.util.ArrayList;
 import java.util.List;
-
-import modelos.Compra;
 
 public class CartaoDeCredito {
     private double limite;
@@ -16,7 +13,7 @@ public class CartaoDeCredito {
     }
 
     public boolean lancaCompra(Compra compra) {
-        if (this.saldo > compra.getValor()) {
+        if(this.saldo > compra.getValor()){
             this.saldo -= compra.getValor();
             this.compras.add(compra);
             return true;
@@ -36,5 +33,4 @@ public class CartaoDeCredito {
     public List<Compra> getCompras() {
         return compras;
     }
-    
 }

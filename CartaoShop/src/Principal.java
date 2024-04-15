@@ -1,11 +1,8 @@
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
-import modelos.CartaoDeCredito;
-import modelos.Compra;
-
-public class App {
-    public static void main(String[] args) throws Exception {
+public class Principal {
+    public static void main(String[] args) {
         Scanner leitura = new Scanner(System.in);
         System.out.println("Digite o limite do cartão: ");
         double limite = leitura.nextDouble();
@@ -25,21 +22,23 @@ public class App {
             if (compraRealizada) {
                 System.out.println("Compra realizada!");
                 System.out.println("Digite 0 para sair ou 1 para continuar");
+                sair = leitura.nextInt();
             } else {
                 System.out.println("Saldo insuficiente!");
                 sair = 0;
             }
         }
 
-        System.out.println("*****************");
+        System.out.println("***********************");
         System.out.println("COMPRAS REALIZADAS:\n");
         Collections.sort(cartao.getCompras());
-        for (Compra c: cartao.getCompras()) {
-            System.out.println(c.getDescricao() + " - " + c.getValor());
+        for (Compra c : cartao.getCompras()) {
+            System.out.println(c.getDescricao() + " - " +c.getValor());
         }
         System.out.println("\n***********************");
 
         System.out.println("\nSaldo do cartão: " +cartao.getSaldo());
-        
     }
+
+
 }
